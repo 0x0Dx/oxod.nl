@@ -15,16 +15,9 @@
 		<aside>
 			<datetime>{{ (time.Unix .writtenAt).Format "2006/01/02" }}</datetime>
 		</aside>
-		<div class="article-body">
-			{{ .synopsis.html }}
-		</div>
-		{{ if .synopsis.hasMore }}
-		<a href="/{{ .slug }}" class="view-more">
-			read more
+		<a href="/{{ .slug }}" class="title">
+			{{ .title }}
 		</a>
-		{{ else }}
-		<hr>
-		{{ end }}
 	</article>
 	{{ end }}
 </main>
