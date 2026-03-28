@@ -9,6 +9,9 @@ body {
 	flex-direction: column;
 	box-sizing: border-box;
 	max-width: 44em;
+	background: linear-gradient(180deg, #1a1425 0%, #0d0a12 100%);
+	min-height: 100vh;
+	color: #c9b8e0;
 }
 
 main {
@@ -45,7 +48,7 @@ header::after {
 	margin: 0 auto;
 	max-width: 38em;
 	width: 100%;
-	border-bottom: 1px solid #ccc8;
+	border-bottom: 1px solid #6b4c9a40;
 }
 
 header h1 {
@@ -76,7 +79,15 @@ a:hover {
 }
 
 aside {
-	color: #AAA;
+	color: #7c6a9e;
+}
+
+a {
+	color: #9d7cd8;
+}
+
+a:hover {
+	color: #bb9cff;
 }
 
 li {
@@ -122,7 +133,7 @@ footer::before {
 	margin: 0 auto;
 	max-width: 38em;
 	width: 100%;
-	border-top: 1px solid #ccc8;
+	border-top: 1px solid #6b4c9a40;
 }
 
 #index article > hr {
@@ -133,15 +144,16 @@ footer::before {
 #index article > a.view-more {
 	margin: 1rem 0;
 	padding: 1rem 0;
+	padding-top: 0;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-bottom: 2px solid #eb99a1;
+	border-bottom: 2px solid #9d7cd8;
 }
 
 #index article > a.view-more:hover {
-	border-color: #DA4453;
+	border-color: #7c3aed;
 }
 
 #index .article-body h1,
