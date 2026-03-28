@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: '3'
+
+tasks:
+  article-date:
+    cmds:
+      - ./tools/article-date "{{.CLI_ARGS}}"
+
+  build:
+    cmds:
+      - ./tools/build {{.CLI_ARGS}}
+
+  paste-image:
+    cmds:
+      - ./tools/paste-image
+
+  synopsis:
+    cmds:
+      - ./tools/synopsis "{{.CLI_ARGS}}"
+
+  serve:
+    cmds:
+      - task: build
+      - python3 -m http.server -d public
