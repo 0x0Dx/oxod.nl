@@ -146,28 +146,6 @@ nav a.active {
 	background: var(--ov);
 }
 
-nav span.avatar {
-	padding: 0.6rem 0.1rem 0.6rem 0.6rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.25rem;
-}
-
-nav a[href="/about"] {
-	padding-left: 0.1rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-}
-
-nav span.avatar img {
-	width: 32px;
-	height: 32px;
-	border-radius: 50%;
-	display: block;
-}
-
 code, kbd, pre, samp {
 	font-family: "Inconsolata", "Source Code Pro", "Noto Mono", monospace;
 	font-size: 0.9em;
@@ -328,4 +306,22 @@ footer p {
 
 #blog .title:hover {
 	color: var(--accent-hover);
+}
+
+#donate dl {
+	margin: 1rem 0;
+}
+
+#donate dt {
+	font-weight: 600;
+	margin-top: 1rem;
+	color: var(--fg);
+}
+
+#donate dt:first-child {
+	margin-top: 0;
+}
+
+#donate dd {
+	margin: 0.25rem 0 0;
 }

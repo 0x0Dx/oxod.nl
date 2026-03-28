@@ -10,8 +10,13 @@ main() {
 
 	while true; do
 		((++index))
+		local newElement
+		newElement=$(htmlq "body > *:nth-child(${index})" <<< "${html}")
+		if [[ -z "$newElement" ]]; then
+			break
+		fi
 		local newSynopsis=$synopsis
-		newSynopsis+=$(htmlq "body > *:nth-child(${index})" <<< "${html}")
+		newSynopsis+="$newElement"
 		newSynopsis+=$'\n'
 		if (( ${#synopsis} > 0 && ${#newSynopsis} > threshold )); then
 			break

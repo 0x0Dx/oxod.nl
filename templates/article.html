@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 {{ template "components/head.html" }}
 {{ $article := datasource "article" }}
 
@@ -8,7 +10,8 @@
 <meta property="og:description" content="{{ $article.synopsis.text }}" />
 <meta property="article:author" content="oxod" />
 <title>{{ $article.title }} — oxod's blog</title>
-
+</head>
+<body>
 {{ template "components/header.html" }}
 
 <main id="article">
@@ -26,3 +29,5 @@
 </main>
 
 {{ template "components/footer.html" }}
+</body>
+</html>

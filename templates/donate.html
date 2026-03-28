@@ -1,21 +1,35 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 {{ template "components/head.html" }}
 
 <meta property="og:title" content="Donate - oxod" />
 <meta property="og:site_name" content="oxod" />
 <meta property="og:type" content="website" />
 <title>Donate — oxod</title>
-
+</head>
+<body>
 {{ template "components/header.html" }}
 
 <main id="donate">
 	<article>
 		<div class="article-body">
 			<p>Thanks for considering supporting my work!</p>
-			<p>I don't have any donation links set up right now.</p>
-			<p>If you'd like to support me, you can sponsor me on GitHub or reach out to discuss other ways.</p>
+			<p>Crypto donations welcome:</p>
+			<dl>
+				<dt>Bitcoin (BTC)</dt>
+				<dd><code>bc1q...</code></dd>
+				<dt>Ethereum (ETH)</dt>
+				<dd><code>0x...</code></dd>
+				<dt>Monero (XMR)</dt>
+				<dd><code>44A... </code></dd>
+				<dt>Solana (SOL)</dt>
+				<dd><code>So...</code></dd>
+			</dl>
 		</div>
 	</article>
 </main>
 
 {{ template "components/footer.html" }}
+</body>
+</html>
