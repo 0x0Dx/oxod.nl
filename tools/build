@@ -129,6 +129,15 @@ generateArticle() {
 		-d "article=file://$(realpath "$PUBLIC_DIR/$slug/index.json")"
 }
 
+generatePage() {
+	local template="$1"
+	local output="$2"
+
+	gomplate "${gomplateFlags[@]}" \
+		-f "$template" \
+		-o "$output"
+}
+
 generateIndex() {
 	for f in "$@"; do
 		if [[ "$f" != *".json" ]]; then
@@ -199,6 +208,10 @@ main() {
 		if (( ${#articleJSONs[@]} )); then
 			generateIndex "${articleJSONs[@]}"
 		fi
+
+		generatePage "$ROOT/templates/about.html" "$PUBLIC_DIR/about/index.html"
+		generatePage "$ROOT/templates/contact.html" "$PUBLIC_DIR/contact/index.html"
+		generatePage "$ROOT/templates/donate.html" "$PUBLIC_DIR/donate/index.html"
 
 		cp -r "$STATIC_DIR" "$PUBLIC_DIR/static"
 

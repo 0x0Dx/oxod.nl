@@ -97,6 +97,24 @@ header h1 small {
 	font-weight: 400;
 }
 
+nav {
+	display: flex;
+	gap: 1.5rem;
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--ov);
+}
+
+nav a {
+	color: var(--fg);
+	text-decoration: none;
+	font-size: 0.9rem;
+}
+
+nav a:hover {
+	color: var(--accent);
+}
+
 code, kbd, pre, samp {
 	font-family: "Inconsolata", "Source Code Pro", "Noto Mono", monospace;
 	font-size: 0.9em;
