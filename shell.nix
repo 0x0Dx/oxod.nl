@@ -7,6 +7,7 @@ pkgs.mkShell {
     htmlq
     bats
     minify
+    jq
     (pkgs.writeShellScriptBin "serve" ''${pkgs.python3}/bin/python3 -m http.server'')
   ];
 
