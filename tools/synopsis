@@ -9,7 +9,7 @@ main() {
 	html=$(cmark --nobreaks "$1")
 
 	while true; do
-		((index++))
+		((++index))
 		local newSynopsis=$synopsis
 		newSynopsis+=$(htmlq "body > *:nth-child(${index})" <<< "${html}")
 		newSynopsis+=$'\n'
