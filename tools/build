@@ -22,7 +22,7 @@ CMARK_FLAGS=${CMARK_FLAGS:-}
 validateEnvironment() {
 	local -a missing=()
 	
-	for cmd in gomplate cmark jq parallel stat; do
+	for cmd in gomplate cmark jq parallel-moreutils stat; do
 		if ! command -v "$cmd" &> /dev/null; then
 			missing+=("$cmd")
 		fi
@@ -46,7 +46,7 @@ gomplateFlags=(
 )
 
 generateArticle() {
-	usage $# generateArticle input
+	usage 1 generateArticle "<input>"
 
 	local input="$1"
 	local isDir=0
@@ -232,10 +232,14 @@ log() {
 	echo "$@" >&2
 }
 
-# usage <n> <thing> <args...>
+# usage <min_args> <thing> <args...>
 usage() {
-	if (( "$1" < ($# - 3) )); then
-		log "Usage: $2 $(printf "<%s> " "${@:3}")"
+	local minArgs="$1"
+	shift
+	local cmd="$1"
+	shift
+	if (( "$#" < minArgs )); then
+		log "Usage: $cmd $(printf "<%s> " "$@")"
 		return 1
 	fi
 }

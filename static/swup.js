@@ -13,13 +13,4 @@ const swup = new Swup({
 
 // Highlight code blocks on initial load and after navigation.
 hljs.highlightAll()
-swup.on("contentReplaced", () => hljs.highlightAll())
-
-// Preload all our articles.
-const blog = document.getElementById('blog')
-if (blog) {
-	const links = blog.querySelectorAll('article > a.title')
-	for (const link of links) {
-		swup.preloadPage(link.href)
-	}
-}
+swup.on("page:view", () => hljs.highlightAll())

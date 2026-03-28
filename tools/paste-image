@@ -1,20 +1,23 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MIME_TYPES_PATH="${MIME_TYPES_PATH:-/etc/mime.types}"
+main() {
+	local MIME_TYPES_PATH="${MIME_TYPES_PATH:-/etc/mime.types}"
+	local name="./static/assets/clipboard-$(date +%s)"
+	wl-paste > "$name"
 
-local name="./static/assets/clipboard-$(date +%s)"
-wl-paste > "$name"
+	local mime ext
+	mime=$(wl-paste -l | head -n1)
+	ext=$(grep -F "$mime"$'\t' "$MIME_TYPES_PATH" | cut -f2 | cut -d' ' -f1)
+	if [[ -n "$ext" ]]; then
+		mv "$name" "$name.$ext"
+		name+=".$ext"
+	fi
 
-local mime ext
-mime=$(wl-paste -l | head -n1)
-ext=$(grep -F "$mime"$'\t' "$MIME_TYPES_PATH" | cut -f2 | cut -d' ' -f1)
-if [[ -n "$ext" ]]; then
-	mv "$name" "$name.$ext"
-	name+=".$ext"
-fi
+	echo "$name"
+	echo "Size: $(du -h --apparent-size "$name" | cut -f1)"
+	echo "Markdown: ![]($name)"
+	echo "HTML: <img src=\"$name\" />"
+}
 
-echo "$name"
-echo "Size: $(du -h --apparent-size "$name" | cut -f1)"
-echo "Markdown: ![]($name)"
-echo "HTML: <img src=\"$name\" />"
+main "$@"
